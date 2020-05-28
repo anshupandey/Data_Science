@@ -136,6 +136,25 @@ set global local_infile=1;
 show global variables like "local_infile";
 
 use bootup;
-load data local infile "E:\MLIoT\ML\dataset\Online Retail.xlsx" into table stockdata;
+load data local infile "E:\\MLIoT\\ML\\dataset\\Online Retail.csv" into table stockdata 
+character set latin1 FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\r\n' IGNORE 1 LINES;
+
+select * from stockdata;
+
+/***************************************/
+use bootup;
+select * from stockdata;
+/*to check rows in the table*/
+select count(*) from stockdata;
+
+/*to check mean/average of unitprice*/
+select avg(UnitPrice), avg(Quantity) from stockdata;
+select sum(UnitPrice), sum(Quantity) from stockdata;
+select min(UnitPrice), min(Quantity) from stockdata;
+select max(UnitPrice), max(Quantity) from stockdata;
+
+
+
+
 
 
